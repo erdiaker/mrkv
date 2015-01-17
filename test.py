@@ -13,7 +13,7 @@ def test1():
   m = Markov(order=2)
   m.addTransitions(states)
   seq = m.generateSequence(['a','b'], 3)
-  assert(seq == states)
+  assert(seq == ['c', 'd', 'e'])
 
 def test2():
   # should contain only 'a' and 'b'
