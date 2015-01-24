@@ -13,6 +13,7 @@ class Markov(object):
   def __init__(self, order=1): 
     self._order = order
     self._rules = defaultdict(Counter)
+    self.default = None
 
   def addTransition(self, pred, succ):
     '''Add/update a transition by passing a predecessor and a successor.'''
@@ -22,7 +23,7 @@ class Markov(object):
 
   def generate(self, pred):
     '''Generate a single state given a predecessor.'''
-    choice = None
+    choice = self.default
     count = 0
     for elt in self._rules[pred].elements():
       count += 1
