@@ -22,10 +22,14 @@ class Markov(object):
 
   def generate(self, pred):
     '''Generate a single state given a predecessor.'''
-    try:
-      return random.choice(list(self._rules[pred].elements()))
-    except IndexError: # the choice set is empty
-      return None
+    choice = None
+    count = 0
+    for elt in self._rules[pred].elements():
+      count += 1
+      # select with probability 1/count
+      if random.random() * count < 1: 
+        choice = elt
+    return choice
 
   def addTransitions(self, states):
     '''Add a set of transitions given a sequence of states.''' 
