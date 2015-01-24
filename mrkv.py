@@ -27,8 +27,8 @@ class Markov(object):
     count = 0
     for elt in self._rules[pred].elements():
       count += 1
-      # select with probability 1/count
-      if random.random() * count < 1: 
+      # select each element with probability 1/count
+      if random.random() < 1/count: 
         choice = elt
     return choice
 
