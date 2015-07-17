@@ -36,6 +36,6 @@ m2.addTransitions('bbaabbabbbbbababaaaaabbab')
 noidea = m2.generateSequence('b', 7) # a sequence of 'a's and 'b's length 7
 ```
 
-# License
+## License
 MIT
 
