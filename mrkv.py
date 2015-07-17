@@ -24,12 +24,20 @@ class Markov(object):
   def generate(self, pred):
     '''Generate a single state given a predecessor.'''
     choice = self.default
-    count = 0
-    for elt in self._rules[pred].elements():
-      count += 1
-      # select each element with probability 1/count
-      if random.random() < 1/count: 
+
+    elts = self._rules[pred].most_common()
+    totalSum = 0
+    for _, count in elts:
+      totalSum += count
+
+    rnd = random.random()
+    currentSum = 0
+    for elt, count in elts:
+      if rnd >= currentSum / totalSum \
+          and rnd <= (currentSum + count) / totalSum:
         choice = elt
+      currentSum += count
+        
     return choice
 
   def addTransitions(self, states):
