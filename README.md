@@ -4,7 +4,7 @@ mrkv
 A simple library for playing with discrete-time Markov chains. Python 2 & 3
 compatible.
 
-# Installation
+## Installation
 
 You can install via [PyPI](https://pypi.python.org/pypi) by typing the
 following in your terminal:
@@ -12,7 +12,7 @@ following in your terminal:
 pip install mrkv
 ```
 
-# Examples
+## Examples
 ```python
 from mrkv import Markov
 
